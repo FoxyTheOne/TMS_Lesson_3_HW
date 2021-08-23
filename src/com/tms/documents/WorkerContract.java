@@ -14,7 +14,7 @@ import java.util.Date;
  * 	В классе, описывающием документ, следует переопределить метод toString().
  */
 
-public class WorkerContract extends Documents implements IDocuments{
+public class WorkerContract extends Documents{
     Date dateEndOfContract;
     String nameOfWorker;
 
@@ -34,5 +34,7 @@ public class WorkerContract extends Documents implements IDocuments{
         String docProfile = "Номер документа: " + numberOfDoc + ", дата документа: " + dateOfDoc + ", дата окончания контракта: " + dateEndOfContract + ", имя сотрудника: " + nameOfWorker;
         return docProfile;
     }
+    // - интерфейс IDocuments для метода toString создавать не нужно, т.к. этот метод уже есть в классе Object,
+    // а значит возможность вызвать этот метод без создания интерфейса для этого, есть у каждого объекта любого класса
 
 }

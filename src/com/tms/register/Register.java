@@ -15,7 +15,7 @@ import com.tms.documents.Documents;
  * (для этого в классе, описывающием документ, следует переопределить метод toString());
  */
 
-public class Register {
+public class Register implements IRegister{
 
     Documents[] docRegister = new Documents[10]; // это массив объектов
     // массив содержит в себе объекты - документы, создаваемые из классов com.tms.documents.FinanceInvoice, ShipmentProductsContact, WorkerContact которые связаны классом com.tms.documents.Documents
@@ -23,6 +23,7 @@ public class Register {
 
     // метод для заполнения массива добавляемыми в регистр документами:
     int i; // создаём переменную-счетчик, чтобы заполнять ячейки массива с документами по порядку
+    @Override
     public void savingDocInRegister(Documents doc) {
         docRegister[i] = doc; // сохраняем созданный объект (документ) в i-той ячейке массива
         i++; // увеличиваем переменную-счетчик, чтобы следующий документ сохранить в следующей ячейке массива
@@ -30,10 +31,15 @@ public class Register {
     }
 
     // Метод предоставления информации о документе; в doc передаётся интересующий нас объект (документ) определенного класса, что позволяет вызывать метод из соответствующего класса (FinanceInvoice, ShipmentProductsContact либо Worker Contract)
+    @Override
     public void getDocInfo(Documents doc) {
         doc.toString();
         System.out.println("Вот вся информация о документе - " + doc);
     }
+
+
+
+
 
 
 
